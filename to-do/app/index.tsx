@@ -10,22 +10,8 @@ import TaskScreen from "./screens/TaskScreen";
 import LoginScreen from "./screens/LoginScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import store, { setTasks } from "./redux/store";
-import { IP } from "@env";
 
-// function HomeScreen({ navigation }) {
-//     return (
-//         <View
-//             style={{
-//                 flex: 1,
-//                 justifyContent: "center",
-//                 alignItems: "center",
-//             }}
-//         >
-//             <Text>Edit app/index.tsx to edit this screen.</Text>
-//             <Button title="Go to List" onPress={() => navigation.navigate("ListScreen")} />
-//         </View>
-//     );
-// }
+const IP = process.env.EXPO_PUBLIC_IP;
 
 const Stack = createStackNavigator();
 
@@ -43,13 +29,11 @@ const App = () => {
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
     const [role, setRole] = React.useState<UserRole | null>(null);
     const dispatch = useDispatch();
-    console.log("salam");
     useEffect(() => {
         // fetch tasks when the app loads and set them in redux store
         fetch(`${IP}/tasks`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 dispatch(setTasks(data));
             })
             .catch((e) => console.log("error", e));

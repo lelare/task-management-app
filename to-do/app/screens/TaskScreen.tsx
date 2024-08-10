@@ -6,8 +6,6 @@ import { RouteProp } from "@react-navigation/native";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { addTask, updateTask, deleteTask } from "../redux/store";
-import { OPENWEATHERMAP_API_KEY } from "@env";
-import { IP } from "@env";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type Task = {
@@ -38,6 +36,9 @@ type Props = {
 };
 
 const CACHE_DURATION = 30 * 60 * 1000;
+
+const IP = process.env.EXPO_PUBLIC_IP;
+const OPENWEATHERMAP_API_KEY = process.env.EXPO_PUBLIC_OPENWEATHERMAP_API_KEY;
 
 const TaskScreen: React.FC<Props> = ({ route, navigation }) => {
     const [title, setTitle] = useState(route.params?.task?.title || "");

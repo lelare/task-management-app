@@ -70,10 +70,10 @@ node server.js
 
 ## Environment Variables
 
--   .env file should be created in the root of the frontend folder with the following variables:
+-   .env file should be created in the root of the frontend(to-do) folder with the following variables:
 
-    -   OPENWEATHERMAP_API_KEY=your_weather_api_key
-    -   IP=your_ip_address:3000
+    -   EXPO_PUBLIC_OPENWEATHERMAP_API_KEY=your_weather_api_key
+    -   EXPO_PUBLIC_IP=your_ip_address:3000
 
 ## Authentification
 

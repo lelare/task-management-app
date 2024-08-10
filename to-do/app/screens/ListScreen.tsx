@@ -7,7 +7,6 @@ import moment from "moment";
 import { UserRole } from "../index";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, updateTask, deleteTask } from "../redux/store";
-import { IP } from "@env";
 
 type Task = {
     id: string;
@@ -32,6 +31,8 @@ type Props = {
     route: ListScreenRouteProp;
     role: UserRole | null;
 };
+
+const IP = process.env.EXPO_PUBLIC_IP;
 
 const ListScreen: React.FC<Props> = ({ navigation, role }) => {
     const tasks = useSelector((state: RootState) => state.tasks.tasks);
